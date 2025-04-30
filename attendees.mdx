@@ -1,0 +1,57 @@
+---
+title: 'Attendees'
+description: 'Start building awesome documentation in under 5 minutes'
+---
+
+## Overview
+
+This section provides a more in-depth look at an individual event. This is in my opinion is most insightful tool available.
+
+This is what mine looks like:
+
+<img
+  src="/images/attendees/i.png"
+/>
+
+### 1. Header Bar
+  
+This provides basic info on the attendees of you events: 
+
+<Tip>You can sort users via the headers</Tip>
+
+<img
+  src="/images/attendees/i1.png"
+/>
+
+### 2. Additional User Info 
+
+By clicking onto the user, you will be able to view additional info on the user. 
+
+<Tip>Clicking on name and email of user will copy it to clipboard</Tip>
+
+<img
+  src="/images/attendees/i2.png"
+/>
+
+One of the coolest things that Lumalytics is capable is storing all additional info a user fills out when they RSVP.
+
+
+#### How custom data is processed and stored.
+
+To provide context, there are 23 default fields available in Luma. 
+
+```
+['name', 'email', 'userid',
+ 'eventid', 'checked_in_at', 'survey_response_feedback',
+ 'survey_response_rating', 'ticket_type_id', 'ticket_name',
+ 'amount', 'api_id', 'currency',
+ 'last_name', 'amount_tax', 'created_at',
+ 'first_name', 'coupon_code', 'eth_address',
+ 'phone_number', 'custom_source', 'solana_address',
+ 'amount_discount', 'approval_status']
+```
+
+However if you have create another field in you Luma event, they will be stored here as well. (Ex. What's your major? What's your GitHub acc etc.)
+
+What we did was see if the additional fields were one of the 23. If they were not, they would be put in a jsonb object and 
+appended the user object. Now we have a clean way of accessing all additional information about a user that they volunteered! (Something you can't do on Luma)
